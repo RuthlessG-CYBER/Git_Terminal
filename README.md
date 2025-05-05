@@ -53,3 +53,9 @@ Revert or reset changes
 - `git reset --hard <commit>` - Resets to a commit (careful)
 
 ## Stashing
+Temporarily save changes
+
+- `git stash` - Saves uncommitted changes
+- `git stash apply` - Reapplies stashed changes
+- `git stash list` - Lists all stashes
+- `git stash pop` - Applies and removes latest stash
