@@ -1,61 +1,60 @@
-# Git Cheat Sheet
+### Getting & Creating Projects
 
-## Configuration
-Set up your Git identity
+| Command | Description |
+| ------- | ----------- |
+| `git init` | Initialize a local Git repository |
+| `git clone ssh://git@github.com/[username]/[repository-name].git` | Create a local copy of a remote repository |
 
-- `git config --global user.name "Your Name"` - Sets your name for commits
-- `git config --global user.email "you@example.com"` - Sets your email for commits
-- `git config --list` - Lists all Git settings
+### Basic Snapshotting
 
-## Repository Setup
-Start or clone a repository
+| Command | Description |
+| ------- | ----------- |
+| `git status` | Check status |
+| `git add [file-name.txt]` | Add a file to the staging area |
+| `git add -A` | Add all new and changed files to the staging area |
+| `git commit -m "[commit message]"` | Commit changes |
+| `git rm -r [file-name.txt]` | Remove a file (or folder) |
+| `git remote -v` | View the remote repository of the currently working file or directory |
 
-- `git init` - Creates a new Git repository
-- `git clone <repo_url>` - Copies a remote repository
+### Branching & Merging
 
-## Staging and Committing
-Manage file changes
+| Command | Description |
+| ------- | ----------- |
+| `git branch` | List branches (the asterisk denotes the current branch) |
+| `git branch -a` | List all branches (local and remote) |
+| `git branch [branch name]` | Create a new branch |
+| `git branch -d [branch name]` | Delete a branch |
+| `git push origin --delete [branch name]` | Delete a remote branch |
+| `git checkout -b [branch name]` | Create a new branch and switch to it |
+| `git checkout -b [branch name] origin/[branch name]` | Clone a remote branch and switch to it |
+| `git branch -m [old branch name] [new branch name]` | Rename a local branch |
+| `git checkout [branch name]` | Switch to a branch |
+| `git checkout -` | Switch to the branch last checked out |
+| `git checkout -- [file-name.txt]` | Discard changes to a file |
+| `git merge [branch name]` | Merge a branch into the active branch |
+| `git merge [source branch] [target branch]` | Merge a branch into a target branch |
+| `git stash` | Stash changes in a dirty working directory |
+| `git stash clear` | Remove all stashed entries |
+| `git stash pop` | Apply latest stash to working directory |
 
-- `git add <file>` - Stages a file for commit
-- `git add .` - Stages all changed files
-- `git commit -m "Message"` - Commits staged changes
+### Sharing & Updating Projects
 
-## Branching
-Work with branches
+| Command | Description |
+| ------- | ----------- |
+| `git push origin [branch name]` | Push a branch to your remote repository |
+| `git push -u origin [branch name]` | Push changes to remote repository (and remember the branch) |
+| `git push` | Push changes to remote repository (remembered branch) |
+| `git push origin --delete [branch name]` | Delete a remote branch |
+| `git pull` | Update local repository to the newest commit |
+| `git pull origin [branch name]` | Pull changes from remote repository |
+| `git remote add origin ssh://git@github.com/[username]/[repository-name].git` | Add a remote repository |
+| `git remote set-url origin ssh://git@github.com/[username]/[repository-name].git` | Set a repository's origin branch to SSH |
 
-- `git branch` - Lists all branches
-- `git checkout -b <name>` - Creates and switches to a new branch
-- `git checkout <name>` - Switches to a branch
-- `git branch -d <name>` - Deletes a branch (use `-D` to force)
-- `git merge <branch>` - Merges a branch into the current one
+### Inspection & Comparison
 
-## Remote Repositories
-Sync with GitHub or other remotes
-
-- `git remote add origin <url>` - Links to a remote repository
-- `git push -u origin main` - Pushes to remote main branch
-- `git push` - Pushes commits to remote
-- `git pull` - Fetches and merges remote changes
-
-## Status and History
-Check repository state
-
-- `git status` - Shows working directory status
-- `git log` - Shows commit history
-- `git log --oneline --graph` - Shows compact commit graph
-
-## Undoing Changes
-Revert or reset changes
-
-- `git reset HEAD <file>` - Unstages a file
-- `git restore <file>` - Discards file changes
-- `git revert <commit>` - Undoes a commit
-- `git reset --hard <commit>` - Resets to a commit (careful)
-
-## Stashing
-Temporarily save changes
-
-- `git stash` - Saves uncommitted changes
-- `git stash apply` - Reapplies stashed changes
-- `git stash list` - Lists all stashes
-- `git stash pop` - Applies and removes latest stash
+| Command | Description |
+| ------- | ----------- |
+| `git log` | View changes |
+| `git log --summary` | View changes (detailed) |
+| `git log --oneline` | View changes (briefly) |
+| `git diff [source branch] [target branch]` | Preview changes before merging |
